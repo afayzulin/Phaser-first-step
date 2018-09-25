@@ -21,8 +21,7 @@ var player;
 var score = 0;
 var scoreText;
 
-function preload ()
-{
+function preload () {
     this.load.image('sky', 'assets/sky.png');
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
@@ -33,8 +32,7 @@ function preload ()
     );
 }
 
-function create ()
-{
+function create () {
 
     this.add.image(400, 300, 'sky');
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
@@ -99,8 +97,7 @@ function create ()
     this.physics.add.collider(player, bombs, hitBomb, null, this);
 }
 
-function update ()
-{
+function update () {
     if (cursors.left.isDown)
     {
         player.setVelocityX(-160);
@@ -126,8 +123,7 @@ function update ()
     }
 }
 
-function collectStar (player, star)
-{
+function collectStar (player, star) {
     star.disableBody(true, true);
     score += 10;
     scoreText.setText('Score: ' + score);
@@ -150,8 +146,7 @@ function collectStar (player, star)
     }
 }
 
-function hitBomb (player, bomb)
-{
+function hitBomb (player, bomb) {
     this.physics.pause();
 
     player.setTint(0xff0000);
